@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: lol.pbu
+testFramework: spock
+sourceLanguage: groovy
+buildTool: gradle
+features: [app-name, asciidoctor, gradle, groovy, groovy-application, groovy-yaml, http-client-test, jdbc-hikari, logback, micronaut-aot, micronaut-build, micronaut-http-validation, netty-server, postgres, properties, readme, serialization-jackson, shade, spock, static-resources, test-resources]
