@@ -1,4 +1,4 @@
-package lol.pbu
+package lol.pbu.JustServe.QA
 
 import io.micronaut.runtime.Micronaut
 import groovy.transform.CompileStatic

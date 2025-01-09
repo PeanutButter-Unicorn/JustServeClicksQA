@@ -7,8 +7,8 @@ plugins {
     id("io.micronaut.aot") version "4.4.4"
 }
 
-version = "0.1"
-group = "lol.pbu"
+version = "0.0.1"
+group = "lol.pbu.JustServe.QA"
 
 apply from: "gradle/asciidoc.gradle"
 repositories {
@@ -24,8 +24,9 @@ dependencies {
     compileOnly("io.micronaut:micronaut-http-client")
     compileOnly("io.micronaut:micronaut-http-validation")
     compileOnly("io.micronaut.serde:micronaut-serde-processor")
-    compileOnly("org.gebish:geb-core:7.0")
-    compileOnly("org.seleniumhq.selenium:selenium-firefox-driver:4.2.2")
+    implementation("org.gebish:geb-spock:7.0")
+    implementation("org.seleniumhq.selenium:htmlunit-driver:3.62.0")
+    compileOnly("org.seleniumhq.selenium:selenium-firefox-driver:4.27.0")
     compileOnly("org.seleniumhq.selenium:selenium-support:4.2.2")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
@@ -34,7 +35,7 @@ dependencies {
 
 
 application {
-    mainClass = "lol.pbu.Application"
+    mainClass = "lol.pbu.JustServe.QA.Application"
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("17")
@@ -49,22 +50,7 @@ micronaut {
     testRuntime("spock2")
     processing {
         incremental(true)
-        annotations("lol.pbu.*")
-    }
-    testResources {
-        additionalModules.add("jdbc-postgresql")
-    }
-    aot {
-        // Please review carefully the optimizations enabled below
-        // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
-        optimizeServiceLoading = false
-        convertYamlToJava = false
-        precomputeOperations = true
-        cacheEnvironment = true
-        optimizeClassLoading = true
-        deduceEnvironment = true
-        optimizeNetty = true
-        replaceLogbackXml = true
+        annotations("lol.pbu.JustServe.QA.*")
     }
 }
 
